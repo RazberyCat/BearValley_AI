@@ -16,7 +16,7 @@ MonoBehaviour:
   m_GUID: 66cfd61ce38058b4f855bc57c3d6e59f
   m_SerializeEntries:
   - m_GUID: 2f926430a09847a44b94578883387eed
-    m_Address: Assets/Resource/Data/JsonData/TestData.json
+    m_Address: TestData
     m_ReadOnly: 0
     m_SerializedLabels:
     - PreLoad
