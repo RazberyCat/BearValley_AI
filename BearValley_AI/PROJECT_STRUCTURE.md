@@ -1,6 +1,6 @@
-# BearValley_AI ??? Project Guide
+ï»¿# BearValley_AI ï¿½ï¿½ï¿½ Project Guide
 
-> This document defines **non??‘negotiable rules** for project structure, architecture, and coding patterns.
+> This document defines **nonï¿½ï¿½ëªegotiable rules** for project structure, architecture, and coding patterns.
 > All changes must follow this guide unless the guide itself is updated first.
 
 ---
@@ -9,8 +9,8 @@
 
 1. **Folder location defines responsibility**
 2. Do **not** introduce new architectural patterns without documenting them here
-3. Prefer **existing patterns** over refactoring to ??œbetter??? ones
-4. Avoid cross??‘layer dependencies (UI ?†” Gameplay)
+3. Prefer **existing patterns** over refactoring to ï¿½ï¿½ì€etterï¿½ï¿½ï¿½ ones
+4. Avoid crossï¿½ï¿½ë©¿ayer dependencies (UI ï¿½ë„„ Gameplay)
 5. When unsure, **search existing code and follow precedent**
 
 ---
@@ -21,25 +21,25 @@
 
 ```
 Resource/
- ?”œ??? Animations/        # Animator, animation clips
- ?”œ??? Asset/             # Third-party or external art assets
- ?”‚   ?”œ??? 2D Pixel Art Platformer
- ?”‚   ?”œ??? Hyenas
- ?”‚   ?””??? Pet Cats pack
- ?”œ??? Data/
- ?”‚   ?”œ??? Excel/          # Design/balance source data (not runtime)
- ?”‚   ?””??? JsonData/       # Runtime-loadable JSON data
- ?”œ??? Effect/             # VFX, particles
- ?”œ??? Materials/
- ?”œ??? Modeling/           # 3D/2D source models
- ?”œ??? Prefabs/
- ?”‚   ?”œ??? Content/        # Gameplay prefabs
- ?”‚   ?””??? UI/             # UI prefabs
- ?”œ??? Shaders/
- ?”œ??? Sounds/
- ?”œ??? Spine/              # Spine animation data
- ?””??? Sprites/
-     ?””??? Dummy/           # Placeholder visuals
+ ï¿½ëµœï¿½ï¿½ï¿½ Animations/        # Animator, animation clips
+ ï¿½ëµœï¿½ï¿½ï¿½ Asset/             # Third-party or external art assets
+ ï¿½ë´»   ï¿½ëµœï¿½ï¿½ï¿½ 2D Pixel Art Platformer
+ ï¿½ë´»   ï¿½ëµœï¿½ï¿½ï¿½ Hyenas
+ ï¿½ë´»   ï¿½ëµ’ï¿½ï¿½ï¿½ Pet Cats pack
+ ï¿½ëµœï¿½ï¿½ï¿½ Data/
+ ï¿½ë´»   ï¿½ëµœï¿½ï¿½ï¿½ Excel/          # Design/balance source data (not runtime)
+ ï¿½ë´»   ï¿½ëµ’ï¿½ï¿½ï¿½ JsonData/       # Runtime-loadable JSON data
+ ï¿½ëµœï¿½ï¿½ï¿½ Effect/             # VFX, particles
+ ï¿½ëµœï¿½ï¿½ï¿½ Materials/
+ ï¿½ëµœï¿½ï¿½ï¿½ Modeling/           # 3D/2D source models
+ ï¿½ëµœï¿½ï¿½ï¿½ Prefabs/
+ ï¿½ë´»   ï¿½ëµœï¿½ï¿½ï¿½ Content/        # Gameplay prefabs
+ ï¿½ë´»   ï¿½ëµ’ï¿½ï¿½ï¿½ UI/             # UI prefabs
+ ï¿½ëµœï¿½ï¿½ï¿½ Shaders/
+ ï¿½ëµœï¿½ï¿½ï¿½ Sounds/
+ ï¿½ëµœï¿½ï¿½ï¿½ Spine/              # Spine animation data
+ ï¿½ëµ’ï¿½ï¿½ï¿½ Sprites/
+     ï¿½ëµ’ï¿½ï¿½ï¿½ Dummy/           # Placeholder visuals
 ```
 
 **Rules**
@@ -47,31 +47,23 @@ Resource/
 - Runtime scripts may reference assets, never the opposite
 - `Data/Excel` is source-only; gameplay uses converted data
 
-**Asset Usage Policy**
-- `Resource/` assets are **test-only** during development
-- For production use, assets must be:
-  - Copied to appropriate runtime locations
-  - Renamed to follow project naming conventions
-  - **Never used directly** from `Resource/Asset/` in production builds
-- Future: Asset validation tool should detect direct usage of original asset files
-
 ---
 
 
 
 ```
 Assets/
- ?”œ??? AddressableAssetsData/
- ?”œ??? Resource/
- ?”œ??? Scenes/
- ?””??? Scripts/
-    ?”œ??? Content/
-    ?”œ??? StateMachine/
-    ?”œ??? Scenes/
-    ?”œ??? UI/
-    ?”œ??? Settings/
-    ?”œ??? Tools/
-    ?””??? Utils/
+ ï¿½ëµœï¿½ï¿½ï¿½ AddressableAssetsData/
+ ï¿½ëµœï¿½ï¿½ï¿½ Resource/
+ ï¿½ëµœï¿½ï¿½ï¿½ Scenes/
+ ï¿½ëµ’ï¿½ï¿½ï¿½ Scripts/
+    ï¿½ëµœï¿½ï¿½ï¿½ Content/
+    ï¿½ëµœï¿½ï¿½ï¿½ StateMachine/
+    ï¿½ëµœï¿½ï¿½ï¿½ Scenes/
+    ï¿½ëµœï¿½ï¿½ï¿½ UI/
+    ï¿½ëµœï¿½ï¿½ï¿½ Settings/
+    ï¿½ëµœï¿½ï¿½ï¿½ Tools/
+    ï¿½ëµ’ï¿½ï¿½ï¿½ Utils/
 ```
 
 ### Core Principle
@@ -86,7 +78,7 @@ Assets/
 ## 2. Scripts/Content Rules
 
 ### Content/Character/
-- Character??‘specific runtime logic
+- Characterï¿½ï¿½ëªŠpecific runtime logic
 - No UI or scene management
 
 #### Character/States/
@@ -100,7 +92,7 @@ Assets/
 
 ### Content/Controller/
 - Coordinates multiple systems
-- Owns transitions and high??‘level decisions
+- Owns transitions and highï¿½ï¿½ë©¿evel decisions
 
 ---
 
@@ -117,7 +109,7 @@ Assets/
 ---
 
 ### Content/Manager/
-- High??‘level lifecycle managers
+- Highï¿½ï¿½ë©¿evel lifecycle managers
 - Minimal logic (mostly orchestration)
 
 ---
@@ -132,12 +124,12 @@ Assets/
 
 ### StateMachine/
 - Contains **framework only**
-- No character??‘specific logic
+- No characterï¿½ï¿½ëªŠpecific logic
 
 ### FSM Rules
 - States live under `Content/Character/States`
 - Transitions are controlled by the owner (Character / Controller)
-- States must be deterministic and side??‘effect limited
+- States must be deterministic and sideï¿½ï¿½ë©·ffect limited
 
 ---
 
@@ -146,11 +138,11 @@ Assets/
 ### Scripts/UI/
 UI code must **never** directly control gameplay systems.
 
-Sub??‘folders:
-- `Popup/` ??? modal or temporary UI
-- `Scene/` ??? scene??‘bound UI
-- `SubItem/` ??? reusable UI components
-- `UIModule/` ??? UI logic modules
+Subï¿½ï¿½ë©¹olders:
+- `Popup/` ï¿½ï¿½ï¿½ modal or temporary UI
+- `Scene/` ï¿½ï¿½ï¿½ sceneï¿½ï¿½ë©³ound UI
+- `SubItem/` ï¿½ï¿½ï¿½ reusable UI components
+- `UIModule/` ï¿½ï¿½ï¿½ UI logic modules
 
 ---
 
@@ -179,11 +171,11 @@ Sub??‘folders:
 ## 7. Change Policy
 
 If a change:
-- Adds a new top??‘level folder
+- Adds a new topï¿½ï¿½ë©¿evel folder
 - Introduces a new architectural pattern
 - Breaks an existing rule
 
-?¡ **This document must be updated first**
+ï¿½ì˜Ÿ **This document must be updated first**
 
 ---
 
