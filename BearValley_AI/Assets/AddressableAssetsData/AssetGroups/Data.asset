@@ -14,7 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_GroupName: Data
   m_GUID: 66cfd61ce38058b4f855bc57c3d6e59f
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 2f926430a09847a44b94578883387eed
+    m_Address: Assets/Resource/Data/JsonData/TestData.json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: dddd0546e7b08c44a997b0fae861f131, type: 2}
   m_SchemaSet:

@@ -14,7 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_GroupName: UI
   m_GUID: 738dcc3e914ab31448def02668ed9031
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 7e16e978d68bc4149a00c978c197f324
+    m_Address: Assets/Resource/Prefabs/Content/UI_GameScene.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a162b1a2533793044ae51e114816febe
+    m_Address: Assets/Resource/Prefabs/Content/UI_TitleScene.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: dddd0546e7b08c44a997b0fae861f131, type: 2}
   m_SchemaSet:
