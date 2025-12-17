@@ -23,6 +23,7 @@ public class PlayerController : ControllerBase
         // #Todo 인풋시스템 동작 추가
         var move = Managers.Input.GetMove();
         var jump = Managers.Input.GetJump();
+        var run = Managers.Input.GetRun();
         var NormalAttack = Managers.Input.GetNormalAttack();
         var StrongAttack = Managers.Input.GetStrongAttack();
         var Interact = Managers.Input.GetInteract();
@@ -33,8 +34,23 @@ public class PlayerController : ControllerBase
         if (Mathf.Abs(move.x) > 0.1f)
         {
             actor.SetMoveDirection(move.x > 0 ? Vector3.right : Vector3.left);
-            if (cur != typeof(MoveState))
-                actor.FSM.ChangeState<MoveState>();
+            
+            // 런 키가 눌려있으면 RunState, 아니면 MoveState
+            if (run)
+            {
+                if (cur != typeof(RunState))
+                {
+                    actor.FSM.ChangeState<RunState>();
+                }
+            }
+            else
+            {
+                // RunState에서 Shift를 떼면 MoveState로 전환, 또는 다른 상태에서 MoveState로 전환
+                if (cur == typeof(RunState) || cur != typeof(MoveState))
+                {
+                    actor.FSM.ChangeState<MoveState>();
+                }
+            }
             return;
         }
         else if (jump)

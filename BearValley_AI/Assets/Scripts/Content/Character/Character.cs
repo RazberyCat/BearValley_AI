@@ -9,14 +9,15 @@ using UnityEngine.InputSystem.LowLevel;
 public class Character : MonoBehaviour
 {
     #region 기본 속성
-    protected const float RUN_MOVE_SPEED = 1.3f; // 이동 속도
+    protected const float RUN_MOVE_SPEED = 7.5f; // 달리기 속도
+    protected const float MOVE_MOVE_SPEED = 5f; // 이동 속도
     protected const float JUMP_HEIGHT = 2f; // 점프 높이
     #endregion
 
     #region 게임 오브젝트 속성
     protected GameObject _gameObject;
-    protected SpriteRenderer _sprite;
-    protected Animator _animator;
+    public SpriteRenderer _sprite; // 스프라이트 (#임시 처리 public)
+    public Animator _animator; // 애니메이터 (#임시 처리 public)
 
     protected string _prefabsName;
     protected string _spriteName;
@@ -75,6 +76,7 @@ public class Character : MonoBehaviour
         var idle         = new IdleState();
         var jump         = new JumpState();
         var move         = new MoveState();
+        var run          = new RunState();
         var interact     = new InteractState();
         var normalAttack = new NormalAttackState();
         var strongAttack = new StrongAttackState();
@@ -85,6 +87,7 @@ public class Character : MonoBehaviour
         FSM.AddState(idle);
         FSM.AddState(jump);
         FSM.AddState(move);
+        FSM.AddState(run);
         FSM.AddState(interact);
         FSM.AddState(normalAttack);
         FSM.AddState(strongAttack);
@@ -95,6 +98,7 @@ public class Character : MonoBehaviour
         idle.UpdateAction         = Idle;
         jump.UpdateAction         = Jump;
         move.UpdateAction         = Move;
+        run.UpdateAction          = Run;
         interact.UpdateAction     = Interact;
         normalAttack.UpdateAction = NormalAttack;
         strongAttack.UpdateAction = StrongAttack;
@@ -147,14 +151,21 @@ public class Character : MonoBehaviour
     private void Idle() // 대기
     {
         //Debug.Log("Character_Idle");
-        // 대기 상태 처리
+        Animator.Play("Cat_Idle", 0); // 대기 애니메이션 재생
         // 이동 상태 (2초 이동 후 대기, #Todo Move() 상태 처리 필요)
         // 상호작용 상태 (2초 상호작용 후 대기, #Todo Interact() 상태 처리 필요)
     }
     private void Move() // 이동
     {
-        transform.position += moveDirection * 5f * Time.deltaTime;
-
+        Animator.Play("Cat_Move", 0);
+        transform.position += moveDirection * MOVE_MOVE_SPEED * Time.deltaTime;
+        
+        // 스프라이트 렌더러 방향 처리
+        if (_sprite != null)
+        {
+            // 왼쪽으로 가면 뒤집기, 오른쪽으로 가면 뒤집기 해제
+            _sprite.flipX = moveDirection.x < 0;
+        }
         //Debug.Log("Character_Move");
         // 이동 상태 처리
         // if 이동 상태 처리
@@ -169,6 +180,21 @@ public class Character : MonoBehaviour
         Debug.Log("Character_Jump");
         // 점프 상태 처리
         // 점프 상태 처리 종료
+    }
+    private void Run() // 달리기
+    {
+        Animator.Play("Cat_Run", 0);
+        transform.position += moveDirection * RUN_MOVE_SPEED * Time.deltaTime;
+        
+        // 스프라이트 렌더러 방향 처리
+        if (_sprite != null)
+        {
+            // 왼쪽으로 가면 뒤집기, 오른쪽으로 가면 뒤집기 해제
+            _sprite.flipX = moveDirection.x < 0;
+        }
+        
+        //Debug.Log("Character_Run");
+        // 스태미나 소모 처리 (#Todo 스태미나가 없으면 Move 상태로 전환)
     }
     private void Interact() // 상호작용
     {

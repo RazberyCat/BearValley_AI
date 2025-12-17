@@ -34,6 +34,7 @@ public class InputManager
     public bool GetNormalAttack() => inputActions.PlayerActions.NormalAttack.WasPerformedThisFrame();
     public bool GetStrongAttack() => inputActions.PlayerActions.StrongAttack.WasPerformedThisFrame();
     public bool GetInteract() => inputActions.PlayerActions.Interact.WasPerformedThisFrame();
+    public bool GetRun() => inputActions.PlayerActions.Sprint.IsPressed();
 
     // 저장 / 불러오기
     public void SaveRebinds()
