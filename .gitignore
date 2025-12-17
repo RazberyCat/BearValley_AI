@@ -1,0 +1,90 @@
+﻿################################
+# Unity auto-generated folders
+################################
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Mm]emoryCaptures/
+[Rr]ecordings/
+
+# Unity crash reports
+sysinfo.txt
+
+################################
+# Unity user-local settings
+################################
+UserSettings/
+
+################################
+# IDEs (Visual Studio / Rider / VSCode)
+################################
+.vs/
+.idea/
+*.csproj
+*.sln
+*.suo
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# VSCode (개인 설정만 제외)
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/launch.json
+
+################################
+# Cursor (설정은 포함, 캐시만 제외)
+################################
+.cursor-tmp/
+.cursor/cache/
+.cursor/logs/
+
+################################
+# OS junk
+################################
+.DS_Store
+Thumbs.db
+
+################################
+# Logs / temp
+################################
+*.log
+*.tmp
+*.bak
+*.swp
+
+################################
+# Addressables cache
+################################
+Assets/AddressableAssetsData/*/Build/
+Assets/AddressableAssetsData/*/PlayerBuildData/
+
+################################
+# Platform specific
+################################
+# Android
+.gradle/
+*.keystore
+
+# iOS
+Pods/
+*.xcworkspace
+
+################################
+# Build artifacts
+################################
+*.apk
+*.aab
+*.exe
+*.app
+*.unitypackage
